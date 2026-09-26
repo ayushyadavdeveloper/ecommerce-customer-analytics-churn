@@ -9,7 +9,6 @@ from sklearn.metrics import confusion_matrix, roc_curve, auc
 
 from src.analysis import compute_kpis, BUSINESS_INSIGHT_BLOCKS
 
-                                                                                
 st.set_page_config(
     page_title="E-Commerce Analytics Hub",
     layout="wide",
@@ -17,7 +16,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-                                                                                
 st.markdown("""
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -112,7 +110,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-                                                                                
 PLOTLY_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(255,255,255,0.03)",
@@ -144,7 +141,6 @@ def apply_theme(fig):
     fig.update_layout(**PLOTLY_LAYOUT)
     return fig
 
-                                                                                 
 @st.cache_data
 def load_data():
     customer_master  = pd.read_csv("data/processed/customer_master.csv")
@@ -162,7 +158,6 @@ def load_data():
 (customer_master, monthly_trends, country_revenue, top_products,
  test_predictions, metadata, k_selection, model_comparison) = load_data()
 
-                                                                                
 with st.sidebar:
     st.markdown("## 📊 Analytics Hub")
     st.markdown("---")
@@ -200,15 +195,11 @@ with st.sidebar:
         "🚫 Nothing is retrained here — reads pre-computed outputs only."
     )
 
-                      
 cm_filtered = customer_master[
     customer_master["Current_Risk_Tier"].isin(risk_filter) &
     customer_master["Cluster_K4"].isin(cluster_filter)
 ].copy()
 
-                                                                                
-                             
-                                                                                
 if page.startswith("🏠"):
     kpis = compute_kpis(customer_master, monthly_trends)
 
@@ -321,9 +312,6 @@ if page.startswith("🏠"):
         "Prioritise for immediate retention outreach."
     )
 
-                                                                                
-                         
-                                                                                
 elif page.startswith("📈"):
     st.title("📈 Sales & Business Trends")
 
@@ -432,9 +420,6 @@ elif page.startswith("📈"):
         fig.update_layout(height=max(300, prod_n * 28), coloraxis_showscale=False)
         st.plotly_chart(fig, use_container_width=True)
 
-                                                                                
-                            
-                                                                                
 elif page.startswith("🧩"):
     st.title("🧩 Customer Segmentation")
 
@@ -599,9 +584,6 @@ elif page.startswith("🧩"):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-                                                                                
-                     
-                                                                                
 elif page.startswith("⚠️"):
     st.title("⚠️ Churn Risk Prediction")
 
@@ -618,11 +600,14 @@ elif page.startswith("⚠️"):
     """, unsafe_allow_html=True)
 
     st.markdown("### 🏆 Model Comparison (Test Set, n=994)")
-    mc_display = model_comparison.style.format({
-        "Accuracy": "{:.4f}", "Precision": "{:.4f}",
-        "Recall": "{:.4f}", "F1": "{:.4f}", "ROC-AUC": "{:.4f}",
-    }).background_gradient(subset=["Accuracy", "Precision", "Recall", "F1", "ROC-AUC"],
-                             cmap="Purples")
+    num_cols = ["Accuracy", "Precision", "Recall", "F1", "ROC-AUC"]
+    mc_display = model_comparison.style.format(
+        {c: "{:.4f}" for c in num_cols}
+    ).bar(
+        subset=num_cols,
+        color="rgba(139,92,246,0.35)",
+        vmin=0, vmax=1,
+    )
     st.dataframe(mc_display, use_container_width=True, hide_index=True)
 
     rf = model_comparison[model_comparison["Model"] == "Random Forest"].iloc[0]
@@ -731,9 +716,6 @@ elif page.startswith("⚠️"):
         fig.update_layout(height=240, showlegend=True)
         st.plotly_chart(fig, use_container_width=True)
 
-                                                                                
-                            
-                                                                                
 elif page.startswith("💡"):
     st.title("💡 Business Insights & Actions")
     st.caption("Evidence-driven: Observation → Insight → Hypothesis → Recommendation → Action")
@@ -772,9 +754,6 @@ elif page.startswith("💡"):
             t4.markdown(block["recommendation"])
             t5.markdown(f"**→ {block['action']}**")
 
-                                                                                
-                            
-                                                                                
 elif page.startswith("🔍"):
     st.title("🔍 Customer Risk Explorer")
 
