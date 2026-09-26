@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.DS_Store
+
+# Raw dataset
+online_retail_II.xlsx
+
+# ZIP files
+*.zip

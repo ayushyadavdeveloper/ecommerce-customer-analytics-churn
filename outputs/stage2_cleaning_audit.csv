@@ -1,0 +1,13 @@
+step,rows_removed,rows_remaining
+0. RAW combined rows,,1067371
+1+2. Duplicate/overlap rows removed,34335.0,1033036
+Test transactions (TEST001/TEST002) removed,17.0,1033019
+Bad-debt entries (StockCode=B) removed,6.0,1033013
+Staff adjustment entries (ADJUST) removed,67.0,1032946
+Marketplace fee entries (AMAZONFEE) removed,36.0,1032910
+Internal sample stock (StockCode=S) removed,101.0,1032809
+"Internal write-offs (Price=0, no Customer ID)",5943.0,1026866
+TRANSACTIONS_CORE (base),,1026866
+SALES_VIEW (final),,1026866
+RFM_BASE: missing Customer ID excluded,229058.0,797808
+PRODUCT_VIEW: non-product charge codes excluded,5436.0,1021430

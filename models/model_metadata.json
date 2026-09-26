@@ -1,0 +1,47 @@
+{
+  "feature_cols": [
+    "Recency_cutoff",
+    "Frequency_cutoff",
+    "Monetary_cutoff",
+    "AOV_cutoff",
+    "Total_Quantity_cutoff",
+    "Tenure_cutoff",
+    "Avg_Interval_cutoff",
+    "Is_SinglePurchase_asof_cutoff"
+  ],
+  "interval_median_days": 62.833333333333336,
+  "observation_period": [
+    "2009-12-01",
+    "2011-06-12"
+  ],
+  "future_window": [
+    "2011-06-12",
+    "2011-12-09"
+  ],
+  "future_window_days": 180,
+  "churn_definition": "Customer made zero non-cancelled purchase invoices in the 180-day future window after the prediction cutoff.",
+  "test_set_metrics": {
+    "random_forest": {
+      "Accuracy": 0.727364185110664,
+      "Precision": 0.6864864864864865,
+      "Recall": 0.797071129707113,
+      "F1": 0.7376573088092934,
+      "ROC-AUC": 0.8017417534299893
+    },
+    "logistic_regression": {
+      "Accuracy": 0.7193158953722334,
+      "Precision": 0.6932038834951456,
+      "Recall": 0.7468619246861925,
+      "F1": 0.7190332326283988,
+      "ROC-AUC": 0.7906855113359931
+    }
+  },
+  "risk_tier_thresholds": {
+    "Low": "< 0.40",
+    "Medium": "0.40 - 0.70",
+    "High": ">= 0.70"
+  },
+  "kmeans_k_selected": 4,
+  "kmeans_k_rationale": "K=2 had the highest silhouette score (0.465), but K=4 was selected for business interpretability because it isolated a distinct 101-customer high-value bulk/wholesale-like cluster (Cluster 3) that K=2/K=3 blend into the general high-value group.",
+  "excluded_from_customer_master": "53 cancellation-only customers and any customer with no purchase in the observation period are excluded from customer-level RFM/churn tables, per Stage 3-5 methodology."
+}

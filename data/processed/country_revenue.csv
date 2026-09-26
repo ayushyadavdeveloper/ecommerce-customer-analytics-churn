@@ -1,0 +1,43 @@
+Country_clean,Revenue,Orders,Customers
+United Kingdom,16356062.117,43732,5401
+EIRE,608389.51,792,3
+Netherlands,548349.08,249,22
+Germany,411904.371,1089,107
+France,321676.66,745,94
+Australia,166444.42,117,15
+Switzerland,99403.06,123,22
+Spain,90811.94,184,38
+Sweden,87775.52,129,19
+Denmark,64459.590000000004,53,12
+Belgium,63208.89,183,29
+Portugal,51299.090000000004,122,23
+Channel Islands,41080.18,79,14
+Japan,39662.1,56,10
+Norway,35455.91,53,13
+Italy,30214.43,91,17
+Finland,29593.86,65,13
+Cyprus,24032.56,45,11
+Austria,23177.6,51,13
+Greece,18995.49,21,5
+Hong Kong,13830.5,21,0
+Singapore,13158.16,14,1
+Israel,11101.37,11,4
+Unknown/Other,11006.97,32,7
+Poland,10279.93,38,6
+United Arab Emirates,9948.65,22,4
+USA,6286.54,25,9
+Malta,5192.22,16,2
+Iceland,4921.53,8,1
+Lithuania,4892.68,6,1
+Canada,4883.04,8,5
+RSA,3369.03,5,2
+Thailand,3070.54,2,1
+Bahrain,2861.55,12,2
+Lebanon,1865.91,3,1
+Brazil,1411.87,2,2
+Bermuda,1253.1399999999999,1,0
+Korea,949.82,3,2
+Czech Republic,707.72,5,1
+West Indies,536.41,1,1
+Saudi Arabia,131.17,2,1
+Nigeria,-34.48,2,1
